@@ -20,18 +20,17 @@ const frequencySort = function (nums) {
 	let arr = []
 	for (let t = 0; t < keys.length; t++){
 		arr.push(
-			new Array(MapValue[keys[t]]).fill(keys[t])
+			new Array(MapValue[keys[t]]).fill(Number(keys[t]))
 		)
 	}
 	arr = arr.sort((a, b) => a.length - b.length)
-	for (let z = 0; z < arr.length - 1; z++) { 
-		// if (z === 2) { 
-		// 	console.log(arr[z][0] < arr[z+1][0])
-		// }
-		if (arr[z].length === arr[z + 1].length && arr[z][0] < arr[z + 1][0]) { 
-			[arr[z + 1],arr[z]] = [arr[z],arr[z + 1]]
+	for (let z = 0; z < arr.length  ; z++) { 
+		for (let k = 0; k < arr.length -1; k++) { 
+			if (arr[k].length === arr[k + 1].length && arr[k][0] < arr[k+1][0]) { 
+				[arr[k + 1],arr[k]] = [arr[k],arr[k + 1]]
+			}
 		}
 	}
 	return arr.flat()
 };
-console.log(frequencySort([8,-8,2,-8,-5,-3]))
+console.log(frequencySort([3,8,7,-7,5,3,-7]))
