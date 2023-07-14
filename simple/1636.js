@@ -23,15 +23,15 @@ const frequencySort = function (nums) {
 			new Array(MapValue[keys[t]]).fill(keys[t])
 		)
 	}
-	console.log(arr)
-	for (let z = 0; z < arr.length -1; z++) { 
-		console.log(z)
+	arr = arr.sort((a, b) => a.length - b.length)
+	for (let z = 0; z < arr.length - 1; z++) { 
+		// if (z === 2) { 
+		// 	console.log(arr[z][0] < arr[z+1][0])
+		// }
 		if (arr[z].length === arr[z + 1].length && arr[z][0] < arr[z + 1][0]) { 
-			[arr[z],arr[z+1]] = [arr[z+ 1],arr[z]]
+			[arr[z + 1],arr[z]] = [arr[z],arr[z + 1]]
 		}
 	}
-	arr = arr.sort((a, b) => a.length - b.length).flat()
-	return arr
+	return arr.flat()
 };
-
 console.log(frequencySort([8,-8,2,-8,-5,-3]))
