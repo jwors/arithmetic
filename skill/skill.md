@@ -11,6 +11,28 @@
 >
 > 可用于**有序数组**的查找对应的值
 
+```javascript
+
+int binarySearch(int[] nums, int target){
+  if(nums == null || nums.length == 0)
+    return -1;
+
+  int left = 0, right = nums.length - 1;
+  while(left <= right){
+    // Prevent (left + right) overflow
+    int mid = left + (right - left) / 2;
+    if(nums[mid] == target){ return mid; }
+    else if(nums[mid] < target) { left = mid + 1; }
+    else { right = mid - 1; }
+  }
+
+  // End Condition: left > right
+  return -1;
+}
+
+// left + (right - left) / 2 是为了防止溢出
+```
+
 ## 双指针
 >
 > 双指针技巧通常用于解决一些数组或字符串相关的算法问题，其中需要在数组或字符串中找到满足特定条件的子序列、子数组或子字符串。这种技巧的核心思想是使用两个指针来遍历数组或字符串，通过移动这两个指针以在遍历过程中实现特定的目标。
@@ -18,3 +40,6 @@
 ## 快慢指针
 
 [来源](https://leetcode.cn/leetbook/read/array-and-string/cv3bv/)
+
+
+##
